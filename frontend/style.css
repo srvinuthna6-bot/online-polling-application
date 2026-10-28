@@ -1,0 +1,456 @@
+/* ========================================
+   1. Global Styles
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f7ff;
+    color: #26304a;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* ========================================
+   2. Header and Navigation
+======================================== */
+
+header {
+    background-color: #ffffff;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    max-width: 1200px;
+    margin: auto;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+nav h1 {
+    color: #6254e7;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+nav div {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav div a {
+    color: #4a536a;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav div a:hover {
+    color: #6254e7;
+}
+
+/* ========================================
+   3. General Section Styles
+======================================== */
+
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 24px;
+}
+
+section {
+    margin-bottom: 45px;
+    padding: 35px;
+    background-color: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 5px 25px rgba(44, 55, 100, 0.05);
+}
+
+section h2 {
+    color: #26304a;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+section > p {
+    color: #737d93;
+    margin-bottom: 25px;
+}
+
+/* ========================================
+   4. Home Section
+======================================== */
+
+#home {
+    padding: 75px 40px;
+    text-align: center;
+    background: linear-gradient(135deg, #6254e7, #8a63ed);
+    color: #ffffff;
+    border-radius: 22px;
+}
+
+#home h2 {
+    color: #ffffff;
+    font-size: clamp(30px, 5vw, 48px);
+    margin-bottom: 15px;
+}
+
+#home p {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    color: #f0edff;
+    font-size: 17px;
+}
+
+#home a {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 5px;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#home a:first-of-type {
+    background-color: #ffffff;
+    color: #6254e7;
+}
+
+#home a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================
+   5. Poll and Result Containers
+======================================== */
+
+#poll-list,
+#results-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 22px;
+}
+
+.poll-card,
+.result-card {
+    padding: 24px;
+    background-color: #ffffff;
+    border: 1px solid #e6e9f5;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(44, 55, 100, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 0;
+}
+
+.poll-card:hover,
+.result-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(44, 55, 100, 0.1);
+}
+
+.poll-card h3,
+.result-card h3 {
+    color: #303b59;
+    margin-bottom: 15px;
+    overflow-wrap: anywhere;
+}
+
+.poll-card p,
+.result-card p {
+    color: #737d93;
+    margin-bottom: 12px;
+}
+
+/* ========================================
+   6. Voting Options
+======================================== */
+
+.poll-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+    background-color: #f7f8ff;
+    border: 1px solid #e6e9f5;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.poll-option:hover {
+    background-color: #eeecff;
+}
+
+.poll-option input[type="radio"] {
+    accent-color: #6254e7;
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+}
+
+.poll-option span {
+    overflow-wrap: anywhere;
+}
+
+/* ========================================
+   7. Buttons
+======================================== */
+
+button {
+    border: none;
+    border-radius: 8px;
+    padding: 11px 18px;
+    background-color: #6254e7;
+    color: #ffffff;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #4e40d0;
+    transform: translateY(-2px);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 3px solid #a99fff;
+    outline-offset: 3px;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
+}
+
+.poll-card button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.delete-poll-button {
+    background-color: #dc3545;
+}
+
+.delete-poll-button:hover {
+    background-color: #b52a37;
+}
+
+/* ========================================
+   8. Create Poll Form
+======================================== */
+
+#create-poll-form {
+    max-width: 700px;
+}
+
+#create-poll-form > div {
+    margin-bottom: 20px;
+}
+
+#create-poll-form label {
+    display: block;
+    margin-bottom: 7px;
+    color: #35405c;
+    font-weight: bold;
+}
+
+#create-poll-form input {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #dce1ef;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #26304a;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#create-poll-form input::placeholder {
+    color: #a0a8b9;
+}
+
+#create-poll-form input:focus {
+    border-color: #6254e7;
+    box-shadow: 0 0 0 3px rgba(98, 84, 231, 0.12);
+}
+
+#create-poll-form button[type="submit"] {
+    margin-right: 8px;
+}
+
+#create-poll-form button[type="reset"] {
+    background-color: #e9ebf5;
+    color: #35405c;
+}
+
+#create-poll-form button[type="reset"]:hover {
+    background-color: #d9ddec;
+}
+
+#create-message {
+    margin-top: 15px;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+/* ========================================
+   9. Results Progress Bars
+======================================== */
+
+.result-option {
+    margin-bottom: 18px;
+}
+
+.result-option-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 7px;
+    font-size: 14px;
+}
+
+.result-option-header span:first-child {
+    overflow-wrap: anywhere;
+}
+
+.result-option-header span:last-child {
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.progress-track {
+    width: 100%;
+    height: 10px;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: #e9eaf5;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #6254e7, #a184ff);
+    transition: width 0.5s ease;
+}
+
+.empty-state {
+    padding: 20px;
+    color: #737d93;
+    text-align: center;
+    border: 1px dashed #dce1ef;
+    border-radius: 10px;
+}
+
+/* ========================================
+   10. Footer
+======================================== */
+
+footer {
+    padding: 30px 20px;
+    background-color: #252b43;
+    color: #ffffff;
+    text-align: center;
+}
+
+footer p {
+    margin: 5px 0;
+    color: #d8dced;
+    font-size: 14px;
+}
+
+/* ========================================
+   11. Responsive Design
+======================================== */
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav div {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+    main {
+        padding: 20px 14px;
+    }
+
+    section {
+        padding: 24px 18px;
+        margin-bottom: 25px;
+    }
+
+    section h2 {
+        font-size: 24px;
+    }
+
+    #home {
+        padding: 50px 20px;
+    }
+
+    #poll-list,
+    #results-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 420px) {
+    nav h1 {
+        font-size: 26px;
+    }
+
+    nav div a {
+        font-size: 13px;
+    }
+
+    #home a {
+        display: block;
+        margin: 10px auto;
+        max-width: 230px;
+    }
+
+    #create-poll-form button {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
